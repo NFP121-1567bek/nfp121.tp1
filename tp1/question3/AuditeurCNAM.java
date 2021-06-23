@@ -44,8 +44,25 @@ public class AuditeurCNAM {
      * @return le login du Cnam simplifiÈ, sans les adaptations dues aux
      *         homonymes...
      */
+    
+     public static String replaceSpecial(String s)
+    {
+       s = s.replaceAll("[ËÈÍÎ»… À]","e");
+       s = s.replaceAll("[˚˘€Ÿ]","u");
+       s = s.replaceAll("[ÔÓ??Œ]","i");
+       s = s.replaceAll("[‡‚¿¬]","a");
+       s = s.replaceAll("[Ù‘]","o");
+       s = s.replaceAll("[^a-zA-Z0-9]", "_");
+       return s ;
+    }
+    
     public String login() {
-        return "";// ‡ complÈter
+         String log;
+        log = nom.substring(0, Math.min(nom.length(), 6)) + "_";
+        log += prenom.substring(0,1);
+        log = AuditeurCNAM.replaceSpecial(log);
+        log = log.toLowerCase();
+        return log;
     }
 
     /**

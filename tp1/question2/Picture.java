@@ -20,6 +20,9 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
+    
+    //new sun
+    private Circle sunn;
 
     /**
      * Constructor for objects of class Picture
@@ -55,6 +58,13 @@ public class Picture {
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        //the new sun
+        sunn = new Circle();
+        sunn.changeColor("blue");
+        sunn.moveVertical(-10);
+        sunn.changeSize(60);
+        sunn.makeVisible();
     }
 
     /**
@@ -67,6 +77,9 @@ public class Picture {
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
+            
+            //new sun
+            sunn.changeColor("black");
         }
     }
 
@@ -80,7 +93,25 @@ public class Picture {
             window.changeColor("black");
             roof.changeColor("green");
             sun.changeColor("yellow");
+            
+            //new sun to blue
+            sunn.changeColor("blue");
         }
     }
+    
+     public void coucherSoleil()
+    {
+        try
+        {
+            if(sunn.isVisible())
+                sunn.slowMoveVertical(300);
+        }
+        catch(Exception e)
+        { 
+            System.out.print('\u000C');
+            System.out.println("Le soleil n'est pas visible");
+        }
+    }
+    
 
 }

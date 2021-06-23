@@ -145,6 +145,11 @@ public class Circle {
         color = newColor;
         draw();
     }
+    
+    // coucher du soleil
+    public boolean isVisible(){
+        return isVisible;
+    }
 
     /*
      * Draw the circle with current specifications on screen.
