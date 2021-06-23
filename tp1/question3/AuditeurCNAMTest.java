@@ -123,12 +123,13 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
             auditeur1.login());
     }
     
-    //new test 
-      
+    //new test  
     public void TestSpecialCharacter()
     {
-        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Mon-nom", "Tiret", "1234");
-        assertEquals("mon_no_t", auditeur1.login());
-        assertEquals("Mon-nom Tiret login : mon_no_t", auditeur1.toString());
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM(
+                "pia-tia", "test", "3333");
+        assertEquals("Mr pia-tia max ", "pia-tia", auditeur1.nom());
+        assertEquals("Mr pia-tia max ", "max", auditeur1.prenom());
+        assertEquals("Mr pia-tia max ", "pia-tia_t", auditeur1.login());
     }
 }
